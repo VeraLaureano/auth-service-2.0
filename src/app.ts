@@ -1,16 +1,23 @@
-import express, { Request, Response } from 'express'
-import cors from 'cors'
+import express, { Request, Response } from 'express';
+import cors from 'cors';
+import { notFound } from './middlewares/notFound';
 
 // Create an express application
-const app = express()
+const app = express();
 
 // Set up middleware functions
-app.use(express.json())
-app.use(cors())
-app.use(express.urlencoded({ extended: false }))
-app.use(express.static('public'))
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static('public'));
 
 // Set up routing
 app.use('/', (_req: Request, res: Response) => {
-  res.send('Hello World')
-})
+  res.send('Hello World');
+});
+
+// Set up 404 error handler
+app.use(notFound);
+
+// Export the Express application
+export default app;

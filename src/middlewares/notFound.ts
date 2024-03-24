@@ -1,5 +1,5 @@
 // Import modules
-import { Request, Response } from 'express'
+import { Request, Response } from 'express';
 
 // Define a function to handle 404 errors
 export const notFound = (_req: Request, res: Response) => {
@@ -7,5 +7,5 @@ export const notFound = (_req: Request, res: Response) => {
   res.status(404).json({
     message: 'ROUTE_DOES_NOT_EXIST',
     statusCode: 404
-  })
-}
+  });
+};
