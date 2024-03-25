@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { User } from "../interfaces/User.interface";
 
 const UserSchema = new Schema<User>({
   username: {
@@ -19,5 +20,4 @@ const UserSchema = new Schema<User>({
 }, { timestamps: true })
 
 const UserModel = model('User', UserSchema)
-
 export default UserModel
