@@ -1,7 +1,10 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import cors from 'cors';
 import ExpressMongoSanitize from 'express-mongo-sanitize';
 import { notFound } from './middlewares/notFound';
+import { routes } from './config/routes';
+import { userRouter } from './routes/user.route';
+import { errorHandler } from './middlewares/errorHandler';
 
 // Create an express application
 const app = express();
@@ -12,19 +15,19 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(ExpressMongoSanitize({
-  dryRun: true,
   onSanitize: ({ req, key }) => {
-    console.warn(`[DryRun] This request[${key}] will be sanitized`, req);
+    console.warn(`This request[${key}] will be sanitized`, req);
   },
 }))
 
 // Set up routing
-app.use('/', (_req: Request, res: Response) => {
-  res.send('Hello World');
-});
+app.use(routes.user, userRouter)
 
 // Set up 404 error handler
 app.use(notFound);
+
+// Use the 'errorHandler' middleware for handling errors
+app.use(errorHandler)
 
 // Export the Express application
 export default app;
