@@ -1,16 +1,19 @@
 # **Auth Service V2.0**
 
+### API Link 
+[https://auth-service.4.us-1.fl0.io/](https://auth-service.4.us-1.fl0.io/)
+
 ## Commands:
-```json
+```
 npm run start
 ```
-```json
+```
 npm run start:dev
 ```
-```json
+```
 npm run lint
 ```
-```json
+```
 npm run build
 ```
 <br />
