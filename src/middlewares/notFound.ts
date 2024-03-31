@@ -7,8 +7,6 @@ import { routes } from '../config/routes';
 export const notFound = (req: AuthenticatedRequest, res: Response) => {
   // Set the status code of the response to 404
   return res.status(404).json({
-    status_code: 404,
-    message: 'ROUTE_DOES_NOT_EXIST',
     actual_path: req.path,
     app_name: 'Auth Service 2.0',
     user: [
