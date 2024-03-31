@@ -7,6 +7,7 @@ import { userRouter } from './routes/user.route';
 import { errorHandler } from './middlewares/errorHandler';
 import { authentication } from './middlewares/auth';
 import { authRouter } from './routes/auth.route';
+import { apiLimiter } from './utils/limiter';
 
 // Create an express application
 const app = express();
@@ -21,6 +22,7 @@ app.use(ExpressMongoSanitize({
     console.warn(`This request[${key}] will be sanitized`, req);
   },
 }));
+app.use(apiLimiter)
 
 // Set up routing
 app.use(routes.user, userRouter);
