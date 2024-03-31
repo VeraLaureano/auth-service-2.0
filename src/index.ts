@@ -7,6 +7,8 @@ import { logError, logInfo } from './utils/loggers';
 // Create a server using the app module
 const server = createServer(app);
 
+server.keepAliveTimeout = 30000;
+
 // Define a function to start the server
 const start: () => void = async () => {
   try {

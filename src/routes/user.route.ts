@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { postUserLogin, postUserSignup } from '../controllers/user.controller';
-import { loginLimiter, signupLimiter } from './../utils/limiter'
+import { loginLimiter, signupLimiter } from './../utils/limiter';
 
 const router = Router();
 

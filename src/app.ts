@@ -22,7 +22,7 @@ app.use(ExpressMongoSanitize({
     console.warn(`This request[${key}] will be sanitized`, req);
   },
 }));
-app.use(apiLimiter)
+app.use(apiLimiter);
 
 // Set up routing
 app.use(routes.user, userRouter);
