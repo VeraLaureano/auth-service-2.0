@@ -7,3 +7,4 @@ export const NOT_FOUND = 404;
 export const CONFLICT = 409;
 export const TOO_MANY_REQUEST = 429;
 export const INTERNAL_SERVER_ERROR = 500;
+export const TIMEOUT = 504

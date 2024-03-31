@@ -8,11 +8,13 @@ import { errorHandler } from './middlewares/errorHandler';
 import { authentication } from './middlewares/auth';
 import { authRouter } from './routes/auth.route';
 import { apiLimiter } from './utils/limiter';
+import { httpTimeout } from './utils/httpTimeout';
 
 // Create an express application
 const app = express();
 
 // Set up middleware functions
+app.use(httpTimeout)
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
