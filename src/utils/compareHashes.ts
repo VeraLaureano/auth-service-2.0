@@ -1,5 +1,5 @@
 // Import the compare function from the bcrypt module
-import { compare } from 'bcrypt'
+import { compare } from 'bcrypt';
 
 // Define a function to compare a password with a hash
 export const compareHashes = async (password: string, hash: string): Promise<boolean> => {
@@ -8,11 +8,11 @@ export const compareHashes = async (password: string, hash: string): Promise<boo
     compare(password, hash, (err, result) => {
       if (err) {
         // Reject the promise if there is an error
-        reject(err)
+        reject(err);
       } else {
         // Resolve the promise with the boolean result
-        resolve(result)
+        resolve(result);
       }
-    })
-  })
-}
+    });
+  });
+};

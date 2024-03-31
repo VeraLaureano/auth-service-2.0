@@ -20,17 +20,17 @@ app.use(ExpressMongoSanitize({
   onSanitize: ({ req, key }) => {
     console.warn(`This request[${key}] will be sanitized`, req);
   },
-}))
+}));
 
 // Set up routing
-app.use(routes.user, userRouter)
-app.use(routes.user, authentication, authRouter)
+app.use(routes.user, userRouter);
+app.use(routes.user, authentication, authRouter);
 
 // Set up 404 error handler
 app.use(notFound);
 
 // Use the 'errorHandler' middleware for handling errors
-app.use(errorHandler)
+app.use(errorHandler);
 
 // Export the Express application
 export default app;

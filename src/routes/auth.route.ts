@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { deleteUser, getUser, patchUser } from "../controllers/user.controller";
+import { Router } from 'express';
+import { deleteUser, getUser, patchUser } from '../controllers/user.controller';
 
-const router = Router()
+const router = Router();
 
-router.route('/').get(getUser).patch(patchUser).delete(deleteUser)
+router.route('/').get(getUser).patch(patchUser).delete(deleteUser);
 
-export { router as authRouter }
+export { router as authRouter };

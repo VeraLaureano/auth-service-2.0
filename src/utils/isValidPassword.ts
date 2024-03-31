@@ -6,8 +6,8 @@ export const isValidPassword = (password: string): boolean => {
   // - At least one digit
   // - At least one special character (@$!%*?&)
   // - At least eight characters long
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/;
     
   // Test the password against the regular expression and return the result
-  return regex.test(password)
-}  
+  return regex.test(password);
+};  
