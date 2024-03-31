@@ -15,7 +15,7 @@ const app = express();
 
 // Set up middleware functions
 app.use(httpTimeout)
-app.use(express.json());
+app.use(express.json({ limit: '1mb' })); // Limit request body size to 1MB
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
