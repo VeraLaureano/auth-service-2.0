@@ -170,14 +170,8 @@ export const patchUser = asyncWrapper(
       newData = { ...newData, password: passwordHashed }
     }
 
-    // Escape special characters in the user ID to prevent security issues.
-    const escapedId: string = escapeSpecialCharacters(_id as string)
-
-    // Clean the escaped ID to remove any potential cross-site scripting (XSS) attacks.
-    const cleanId: string = cleanXSS(escapedId)
-
     // Find and update the user based on the cleaned ID and newData.
-    const newUser = await findAndUpdateUser(cleanId, newData)
+    const newUser = await findAndUpdateUser(_id as string, newData)
 
     // If the update fails, return an 'USER_UPDATE_FAILED' error.
     if (!newUser)
@@ -214,14 +208,8 @@ export const deleteUser = asyncWrapper(
     if (username !== confirmUsername)
       return res.status(BAD_REQUEST).json({ message: 'USERNAME_NOT_MATCH' })
 
-    // Escape special characters in the user ID to prevent potential security issues.
-    const escapedId: string = escapeSpecialCharacters(_id as string)
-
-    // Clean the escaped ID to remove any potential cross-site scripting (XSS) attacks.
-    const cleanId: string = cleanXSS(escapedId)
-
     // Find and delete the user based on the cleaned ID.
-    const data = await findAndDeleteUser(cleanId)
+    const data = await findAndDeleteUser(_id as string)
 
     // If deletion fails, return an 'USER_DELETE_FAILED' error.
     if (!data)

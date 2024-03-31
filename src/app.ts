@@ -5,6 +5,8 @@ import { notFound } from './middlewares/notFound';
 import { routes } from './config/routes';
 import { userRouter } from './routes/user.route';
 import { errorHandler } from './middlewares/errorHandler';
+import { authentication } from './middlewares/auth';
+import { authRouter } from './routes/auth.route';
 
 // Create an express application
 const app = express();
@@ -22,6 +24,7 @@ app.use(ExpressMongoSanitize({
 
 // Set up routing
 app.use(routes.user, userRouter)
+app.use(routes.user, authentication, authRouter)
 
 // Set up 404 error handler
 app.use(notFound);
