@@ -22,6 +22,6 @@ export const findAndUpdateUser = async (userID: string, data: object) => {
 };
 
 export const findAndDeleteUser = async (userID: string) => {
-  const responseUser = await UserModel.findOneAndUpdate({ _id: userID });
+  const responseUser = await UserModel.findOneAndDelete({ _id: userID });
   return responseUser;
 };

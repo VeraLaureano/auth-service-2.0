@@ -209,11 +209,7 @@ export const deleteUser = asyncWrapper(
       return res.status(BAD_REQUEST).json({ message: 'USERNAME_NOT_MATCH' });
 
     // Find and delete the user based on the cleaned ID.
-    const data = await findAndDeleteUser(_id as string);
-
-    // If deletion fails, return an 'USER_DELETE_FAILED' error.
-    if (!data)
-      return res.status(INTERNAL_SERVER_ERROR).json({ message: 'USER_DELETE_FAILED' });
+    await findAndDeleteUser(_id as string);
 
     // Clear the user object from the request context.
     req.user = undefined;
